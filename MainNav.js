@@ -1,25 +1,35 @@
-import { Link } from "react-router-dom";
-import Home from "../Header/Home";
+import { NavLink } from "react-router-dom";
+import classes from "./MainNav.module.css";
+import { Nav, NavItem } from "reactstrap";
 
 const MainNav = () => {
   return (
-    <header>
-      <nav>
-        <ul>
-          <li>
-            <Link to="/"> Home1 </Link>
-          </li>
-          <li>
-            <Link to="/about"> About </Link>
-          </li>
-          <li>
-            <Link to="/products"> Products </Link>
-          </li>
-          <li>
-            <Link to="/contact"> Contact</Link>
-          </li>
-        </ul>
-      </nav>
+    <header className={classes.header}>
+      <div>
+        <img src="/images/Logo.svg" style={{ height: "50px" }} alt="" />
+        <Nav>
+          <NavItem>
+            <NavLink activeClassName={classes.active} to="/" exact={true}>
+              Home
+            </NavLink>
+          </NavItem>
+          <NavItem>
+            <NavLink activeClassName={classes.active} to="/about">
+              About
+            </NavLink>
+          </NavItem>
+          <NavItem>
+            <NavLink activeClassName={classes.active} to="/products">
+              Products
+            </NavLink>
+          </NavItem>
+          <NavItem>
+            <NavLink activeClassName={classes.active} to="/contact">
+              Contact
+            </NavLink>
+          </NavItem>
+        </Nav>
+      </div>
     </header>
   );
 };
